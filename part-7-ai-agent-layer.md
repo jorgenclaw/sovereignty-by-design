@@ -18,6 +18,16 @@
 
 ---
 
+> 📋 **TODO (Scott + Jorgenclaw) — Anthropic data flow accuracy audit:** Review all language in this guide (and the broader sovereignty-by-design repo) that could imply conversation data is kept away from Anthropic’s servers. **It is not.** Conversation content flows to Anthropic’s API with every message — that is how the Claude model works. What NanoClaw’s architecture actually guarantees is narrower and should be stated precisely:
+> 
+> - *Kept from the container (by architecture):* private keys, credentials, and host-level files never enter the agent’s workspace
+> - *Kept from the host AI (by policy):* the host machine’s Claude Code instance operates under explicit rules not to exfiltrate data
+> - *Not yet achieved:* keeping conversation content off Anthropic’s servers entirely — this requires a locally-hosted model (planned: Tailscale + local LLM)
+> 
+> The honest framing: the user **owns** the infrastructure and the data. Anthropic sees the conversation content but cannot correlate it to the user’s identity, keys, or files. That is meaningful sovereignty — but it is not the same as end-to-end private AI. Any claim in our writings that conversation data never reaches Anthropic is false and should be corrected.
+
+---
+
 ## 7.1 — What NanoClaw Is
 
 ### The Short Version
