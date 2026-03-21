@@ -14,6 +14,10 @@
 
 ---
 
+> 📋 **TODO (Scott):** Give Bisq Mobile a fair evaluation for readers who have a clean GrapheneOS phone but cannot yet commit to a full Linux desktop — apart from the Linux host machine that runs their NanoClaw. These readers need a non-KYC Bitcoin exchange path that works on mobile. If Bisq Mobile holds up, it belongs in Part 5 (no-KYC Bitcoin) with a callout here for the GrapheneOS-first pathway.
+
+---
+
 ## 7.1 — What NanoClaw Is
 
 ### The Short Version
