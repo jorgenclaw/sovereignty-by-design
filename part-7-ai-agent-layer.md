@@ -14,20 +14,6 @@
 
 ---
 
-> 📋 **TODO (Scott):** Give Bisq Mobile a fair evaluation for readers who have a clean GrapheneOS phone but cannot yet commit to a full Linux desktop — apart from the Linux host machine that runs their NanoClaw. These readers need a non-KYC Bitcoin exchange path that works on mobile. If Bisq Mobile holds up, it belongs in Part 5 (no-KYC Bitcoin) with a callout here for the GrapheneOS-first pathway.
-
----
-
-> 📋 **TODO (Scott + Jorgenclaw) — Anthropic data flow accuracy audit:** Review all language in this guide (and the broader sovereignty-by-design repo) that could imply conversation data is kept away from Anthropic’s servers. **It is not.** Conversation content flows to Anthropic’s API with every message — that is how the Claude model works. What NanoClaw’s architecture actually guarantees is narrower and should be stated precisely:
-> 
-> - *Kept from the container (by architecture):* private keys, credentials, and host-level files never enter the agent’s workspace
-> - *Kept from the host AI (by policy):* the host machine’s Claude Code instance operates under explicit rules not to exfiltrate data
-> - *Not yet achieved:* keeping conversation content off Anthropic’s servers entirely — this requires a locally-hosted model (planned: Tailscale + local LLM)
-> 
-> The honest framing: the user **owns** the infrastructure and the data. Anthropic sees the conversation content but cannot correlate it to the user’s identity, keys, or files. That is meaningful sovereignty — but it is not the same as end-to-end private AI. Any claim in our writings that conversation data never reaches Anthropic is false and should be corrected.
-
----
-
 ## 7.1 — What NanoClaw Is
 
 ### The Short Version
@@ -46,7 +32,7 @@ When you ask ChatGPT or Google Gemini a question, three things happen that you m
 
 NanoClaw runs differently. The AI model (Claude, made by Anthropic) is still accessed over the internet, but the *system around it* — how messages travel, how memory is stored, how secrets are handled — is all under your control.
 
-Your conversations arrive via Signal or White Noise (end-to-end encrypted). The AI's memory files sit on your own hardware. The private keys used to sign the agent's Nostr posts never leave your machine. The agent is yours: you can move it, modify it, or shut it down.
+Your conversations arrive via Signal or White Noise (end-to-end encrypted to the container — Anthropic's API then processes the content). The AI's memory files sit on your own hardware. The private keys used to sign the agent's Nostr posts never leave your machine. The agent is yours: you can move it, modify it, or shut it down.
 
 This isn't about hiding things from Anthropic specifically. It's about not building your daily digital life on infrastructure you don't control.
 
@@ -332,6 +318,16 @@ The agent improves the more context you give it over time. Good habits:
 • "Remember this for future reference: [fact/preference/decision]"
 • Brief it at the start of new projects rather than explaining from scratch each time
 • If a response misses the mark, say why — it adjusts to your expectations
+
+### Emoji Reactions as Feedback
+
+Most messaging apps make 👍 and ❤️ effortless — they're the defaults, one tap away. Your agent will see these as general acknowledgment: "got it, no response needed." That's useful for pacing. It tells the agent it can move on.
+
+What carries more signal is when you go looking for something. A 🔥 or ⭐ requires a deliberate search, which means it was worth the effort. Your agent notices the difference — a reaction that cost you something to send is more informative than one that came for free.
+
+The clearest feedback of all is a correction: "no, not that — here's what I actually want." That's the input agents learn from most durably. Emoji reactions are good for pace and acknowledgment; corrections are how the calibration actually happens.
+
+A simple approach that works well over time: let 👍 mean "received," and save something deliberate — whatever emoji feels right to you — for "this was particularly good." You don't need a rigid system. Just know that the extra tap communicates something your agent will register.
 
 ---
 
