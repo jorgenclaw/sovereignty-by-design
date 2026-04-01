@@ -14,6 +14,34 @@
 
 ---
 
+## 7.0 — Do You Need a Paid Proton Account?
+
+Short answer: **you don't — to get started.**
+
+A paid Proton Unlimited account is what *Scott uses* to run Jorgenclaw's infrastructure (email, calendar, drive, pass). That's an operator cost — the cost of running the service.
+
+As a participant learning to build your own personal assistant, you can start with a **free Proton account** and supplement it with open-source tools:
+
+| Need | Free option |
+|------|------------|
+| Email | Proton Mail free tier (1GB, proton.me address) |
+| Password manager | KeePassXC (local) or Bitwarden free tier |
+| Calendar | Radicale (self-hosted, see Section 7.5) |
+| Calendar on phone | DAVx5 + Etar (both free on F-Droid) |
+| AI agent | NanoClaw (self-hosted, hardware cost only) |
+
+**Total recurring cost: $0.** Hardware is a one-time expense.
+
+When to upgrade to paid Proton:
+- You want a custom email domain (e.g., you@yourdomain.com)
+- You need more than 1GB of mail storage
+- You want Proton Drive for full file sync
+- You want Proton VPN on multiple devices
+
+The upgrade path is clear — but you don't have to be on it on day one.
+
+---
+
 ## 7.1 — What NanoClaw Is
 
 ### The Short Version
@@ -328,6 +356,61 @@ What carries more signal is when you go looking for something. A 🔥 or ⭐ req
 The clearest feedback of all is a correction: "no, not that — here's what I actually want." That's the input agents learn from most durably. Emoji reactions are good for pace and acknowledgment; corrections are how the calibration actually happens.
 
 A simple approach that works well over time: let 👍 mean "received," and save something deliberate — whatever emoji feels right to you — for "this was particularly good." You don't need a rigid system. Just know that the extra tap communicates something your agent will register.
+
+---
+
+## 7.7 — Sovereignty-Native Calendar (Radicale + DAVx5)
+
+Proton Calendar is excellent but requires a paid Proton account for full use, and it's end-to-end encrypted in a way that prevents your AI agent from writing to it directly. For a $0 setup that lets your agent manage your calendar, use **Radicale**.
+
+### What Radicale Is
+
+Radicale is a tiny CalDAV server that runs on your own machine. It stores calendar events as plain files on your hardware. Your AI agent can write events to it, and you can read them on your phone.
+
+It's the open-source equivalent of having a calendar app that only talks to your own server.
+
+### Setup Overview
+
+1. **On your server/mini PC:** Install and run Radicale (one command)
+2. **On your phone:** Install DAVx5 (F-Droid) and Etar (F-Droid)
+3. **Connect DAVx5** to your Radicale server URL with your username and password
+4. **Open Etar** — your calendar appears, populated by whatever your agent wrote
+
+### Privacy Boundary: Personal vs. Shared Calendar
+
+This is important: **your AI agent should not have access to your personal calendar.**
+
+The right model:
+- **Your personal Proton Calendar** — end-to-end encrypted, agent-inaccessible, just yours
+- **Your Radicale shared calendar** — agent can write to this (reminders, workshop sessions, tasks), you explicitly control what goes in
+
+You decide what the agent can see. That's what sovereignty means in practice.
+
+Your agent writes a workshop session to the Radicale calendar. You see it in Etar. Your personal appointments in Proton Calendar stay private. Both exist on your phone side by side — the user controls the boundary.
+
+### Tools
+
+| Tool | Platform | Source | Purpose |
+|------|----------|--------|---------|
+| Radicale | Server (Linux/Mac/Windows) | radicale.org | CalDAV server |
+| DAVx5 | Android | F-Droid | Syncs Radicale to phone |
+| Etar | Android | F-Droid | Calendar app (displays synced events) |
+
+---
+
+## 7.8 — Which Track Are You?
+
+Before setting up NanoClaw, it helps to know what you're trying to do. There are three tracks:
+
+**Personal** — You want an AI that helps you with your own life: reminders, email drafts, research, memory. You're not building anything.
+
+**Business** — You want an AI that helps run your business: customer messages, scheduling, Bitcoin payments, data sovereignty.
+
+**Builder** — You want to understand how it works and customize it. You're technical or want to become technical.
+
+Most people are Personal. Some are Personal + Business. Builders are rare — but if that's you, the whole codebase is open.
+
+A full onboarding questionnaire (to map your needs to a specific NanoClaw configuration) is available at: [sovereignty.jorgenclaw.ai/start](https://sovereignty.jorgenclaw.ai/start)
 
 ---
 

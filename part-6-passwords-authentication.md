@@ -82,6 +82,27 @@ The tradeoff: convenience. Auto-fill and sync between devices requires more manu
 
 **Backing up a KeePass vault:** Keep at least two copies — one on your computer, one on a USB drive stored somewhere other than your desk. The vault is encrypted and safe to copy anywhere. If you lose it with no backup, there is no recovery.
 
+**Syncing your vault:** You can manually back up your `.kdbx` file to Proton Drive — it syncs encrypted and Proton cannot read it. Note: automated backup via AI agent is not reliable at this time (Proton Drive does not expose a stable programmatic interface for agent use). Manual backup is the current recommended approach.
+
+### Advanced: Self-Hosted Bitwarden (Vaultwarden)
+
+If you're running your own server (like a mini PC or Raspberry Pi), *Vaultwarden* is a lightweight, open-source Bitwarden-compatible server you can host yourself. You get all the convenience of Bitwarden — browser extension, mobile auto-fill, team sharing — with the vault sitting entirely on your hardware.
+
+This is the builder-track option. If you're running NanoClaw on your own machine, adding Vaultwarden takes about 30 minutes and your AI agent can interact with it via the Bitwarden CLI.
+
+Reference: https://github.com/dani-garcia/vaultwarden
+
+### Summary: Which Should You Use?
+
+| Option | Best for | Cost | Cloud dependency |
+|--------|----------|------|-----------------|
+| Proton Pass | Proton ecosystem users, beginners | Free tier available | Proton's servers (E2E encrypted) |
+| Bitwarden | Easy cross-device, beginners | Free tier available | Bitwarden's servers (E2E encrypted) |
+| KeePassXC | Maximum local sovereignty | Free | None — local file only |
+| Vaultwarden (self-hosted) | Builders running their own server | Free (hardware cost) | None — your server |
+
+**Scott's recommendation:** Proton Pass or Bitwarden are excellent long-term choices — no need to switch away from them. KeePassXC and Vaultwarden are more involved options for people who specifically want zero cloud dependency or full self-hosting.
+
 ### The One Password You Can't Forget
 
 Your password manager has a master password. This is the one password you genuinely need to memorize. It's not stored anywhere — if you lose it, your vault is permanently inaccessible.

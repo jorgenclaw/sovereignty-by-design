@@ -21,6 +21,8 @@ Don't try to do everything at once. Start here:
 
 That's enough for week one. The Proton suite handles steps 1–3 under one account if you want simplicity — or mix and match with the FOSS alternatives listed throughout the guide. Everything else is refinement.
 
+**Starting from zero?** You don't need to buy anything. See the [$0 Starter Stack](https://sovereignty.jorgenclaw.ai/start) for a working setup using free accounts and open-source tools.
+
 ---
 
 ## Table of Contents
