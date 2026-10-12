@@ -20,17 +20,17 @@ Short answer: **you don't — to get started.**
 
 A paid Proton Unlimited account is what *Scott uses* to run Jorgenclaw's infrastructure (email, calendar, drive, pass). That's an operator cost — the cost of running the service.
 
-As a participant learning to build your own personal assistant, you can start with a **free Proton account** and supplement it with open-source tools:
+If you're building your own personal assistant, you can start with a **free Proton account** and supplement it with open-source tools:
 
 | Need | Free option |
 |------|------------|
 | Email | Proton Mail free tier (1GB, proton.me address) |
 | Password manager | KeePassXC (local) or Bitwarden free tier |
-| Calendar | Radicale (self-hosted, see Section 7.5) |
+| Calendar | Radicale (self-hosted, see Section 7.7) |
 | Calendar on phone | DAVx5 + Etar (both free on F-Droid) |
-| AI agent | NanoClaw (self-hosted, hardware cost only) |
+| AI agent | NanoClaw (free, open source) — powered by an AI plan |
 
-**Total recurring cost: $0.** Hardware is a one-time expense.
+**Total recurring cost: the AI plan.** NanoClaw itself is free, but its thinking comes from an AI service: a Claude or ChatGPT subscription (from about $20/month), Venice, or a model running on your own graphics card (no monthly cost, but the hardware costs more). Everything else in this table is free.
 
 When to upgrade to paid Proton:
 - You want a custom email domain (e.g., you@yourdomain.com)
@@ -46,7 +46,7 @@ The upgrade path is clear — but you don't have to be on it on day one.
 
 ### The Short Version
 
-NanoClaw is an AI assistant that lives inside a sovereignty stack instead of on a tech company's server. You talk to it over Signal or White Noise — end-to-end encrypted channels. It can't be accessed by anyone but you. It has memory, schedules tasks, browses the web, and can post to Nostr on your behalf.
+NanoClaw is an AI assistant that lives inside a sovereignty stack instead of on a tech company's server. You talk to it from your phone over a messaging app — Signal (end-to-end encrypted) is the recommended choice, and Telegram, WhatsApp, Discord and others are available. It has memory, schedules tasks and browses the web, and with add-ons it can do much more (Scott's agent, Jorgenclaw, posts to Nostr — see 7.4).
 
 It's not ChatGPT. The difference isn't just technical — it's structural.
 
@@ -58,9 +58,9 @@ When you ask ChatGPT or Google Gemini a question, three things happen that you m
 2. The company can read your conversation. Courts can subpoena it. Employees can access it. Data breaches can expose it.
 3. The AI runs on that company's infrastructure. If they shut down, change their terms, or decide your questions violate their policies, your assistant disappears.
 
-NanoClaw runs differently. The AI model (Claude, made by Anthropic) is still accessed over the internet, but the *system around it* — how messages travel, how memory is stored, how secrets are handled — is all under your control.
+NanoClaw runs differently. The AI model is still usually accessed over the internet (Claude by default; ChatGPT and the privacy-focused Venice are options), but the *system around it* — how messages travel, how memory is stored, how secrets are handled — is all under your control. You can also run the model on your own graphics card through Ollama, so nothing leaves your home.
 
-Your conversations arrive via Signal or White Noise (end-to-end encrypted to the container — Anthropic's API then processes the content). The AI's memory files sit on your own hardware. The private keys used to sign the agent's Nostr posts never leave your machine. The agent is yours: you can move it, modify it, or shut it down.
+Your conversations arrive over your messaging app (with Signal, end-to-end encrypted to your computer — then the AI service processes the content). The AI's memory files sit on your own hardware. The private keys used to sign the agent's Nostr posts never leave your machine. The agent is yours: you can move it, modify it, or shut it down.
 
 This isn't about hiding things from Anthropic specifically. It's about not building your daily digital life on infrastructure you don't control.
 
@@ -69,8 +69,8 @@ This isn't about hiding things from Anthropic specifically. It's about not build
 • *Answer questions and research topics* — web browsing, reading documents, summarizing content
 • *Manage your schedule* — set reminders, recurring tasks, check-ins
 • *Keep memory across conversations* — it remembers what you've told it: your preferences, ongoing projects, people in your life
-• *Post to Nostr/Clawstr* — it has its own Nostr identity and can post, reply, and engage autonomously
-• *Send and receive messages* — it operates across Signal, White Noise, and WhatsApp groups
+• *Send and receive messages* — in direct chats and groups on the messaging apps you connect
+• *Grow with add-ons* — for example, Scott's agent Jorgenclaw has its own Nostr identity and posts autonomously (see 7.4)
 • *Help with writing and documents* — drafts, research, formatting, editing
 
 ### What It Can't Do (And Why That's Good)
@@ -80,7 +80,7 @@ NanoClaw operates inside a security model designed to limit its blast radius:
 • It cannot send Bitcoin transactions or access wallets without explicit spending controls you set
 • It cannot read private keys or sensitive credentials stored outside its workspace
 • It runs in a container with limited filesystem access — it cannot reach into your broader system
-• Anthropic's AI model can see the conversation content, but not your keys, not your files, not your identity
+• A cloud AI service sees the conversation and anything the agent reads in order to answer you — but not your keys, and not files the agent was never given
 
 The agent is capable and useful. But the sensitive parts of your life — your keys, your money, your identity documents — stay in your hands.
 
@@ -92,9 +92,9 @@ The agent is capable and useful. But the sensitive parts of your life — your k
 
 Signal is your personal encrypted messaging app — the one connected to your real number, with your real contacts. *You use Signal.*
 
-Molly is a separate app that connects to the *same Signal network* but runs a *completely separate account*. NanoClaw runs on Molly, using its own dedicated phone number (typically a VoIP number — see Section 3.4). *NanoClaw uses Molly.*
+Molly is a separate app that connects to the *same Signal network* but runs a *completely separate account*. You register your agent's own phone number (typically a VoIP number — see Section 3.4) in Molly. NanoClaw itself runs on your computer and connects to that Molly account as a *linked device* (the same way Signal Desktop does), so the agent sends and receives as that number.
 
-Both apps coexist on the same phone simultaneously. This is Molly's key feature: dual Signal instances on one device, each with its own number, completely independent of each other.
+Both apps coexist on the same phone. This is Molly's key feature here: two Signal accounts on one device, each with its own number. (Scott uses Molly for business conversations and Signal for personal ones — both end-to-end encrypted.)
 
 The flow looks like this:
 
@@ -104,19 +104,19 @@ Your phone (your Signal app) ─────┐
 Your phone (NanoClaw's Molly) ────┘
 ```
 
-Your messages never touch anything unencrypted. NanoClaw receives them, processes with the AI model, and responds — all through Signal's encryption.
+Your messages are encrypted all the way to your computer. NanoClaw decrypts them there, sends the text to the AI service to generate a reply, and responds through Signal's encryption.
 
 ### What You Need
 
 • Your phone running both Signal (your account) and Molly (NanoClaw's account)
-• NanoClaw's Signal phone number (provided when you're set up on the system)
-• A trigger word for group chats — by default `@Jorgenclaw`; in a 1-on-1 conversation with the agent, no trigger is needed
+• Your agent's own Signal number (the second number you registered in Molly, linked with `/add-signal` — see Part 2b)
+• A trigger word for group chats — your agent's name with an @, chosen during setup (Scott's is `@Jorgenclaw`); in a 1-on-1 conversation with the agent, no trigger is needed
 
 ### Starting a Conversation
 
 1. Open your Signal app and start a conversation with the NanoClaw contact (or a group where it's added).
 2. In a 1-on-1 chat: type your message normally. No trigger word needed.
-3. In a group chat: start your message with `@Jorgenclaw` to address the agent.
+3. In a group chat: start your message with your agent's trigger (for example `@Jorgenclaw`) to address it.
 4. Send it. The agent typically responds within 15–30 seconds for simple questions; longer for tasks that require web browsing or file work.
 
 ### Opening NanoClaw to Friends and Family
@@ -127,7 +127,7 @@ One thing to be clear about before you do this: *you, as the NanoClaw operator, 
 
 This isn't a gotcha — it's just something worth naming explicitly with your friends and family before they start chatting with the agent. A simple: "By the way, I can see everything in this group — it's my assistant, my server" is all it takes. People appreciate the transparency, and it's the right thing to do.
 
-If you want a group where participants have more privacy from each other, use White Noise — Section 7.3 covers that.
+This is true of every encrypted group, on Signal or White Noise alike: each member's device — including the one running your agent — decrypts every message in the group.
 
 ### Troubleshooting
 
@@ -144,7 +144,9 @@ If you want a group where participants have more privacy from each other, use Wh
 
 ### What White Noise Adds
 
-White Noise uses the Nostr network and MLS (Messaging Layer Security) protocol — the same encryption standard used by Meta's Messenger and other large platforms, but without the central server. There is no White Noise company that can be subpoenaed, shut down, or hacked to expose your messages.
+> *White Noise isn't one of NanoClaw's standard channels — Scott added it to his own setup. Treat this section as an example of what's possible.*
+
+White Noise uses the Nostr network and MLS (Messaging Layer Security) — an IETF standard for encrypted group messaging (RFC 9420) — but without a central server. There is no White Noise company that can be subpoenaed, shut down, or hacked to expose your messages.
 
 Your identity on White Noise is a cryptographic keypair — not a phone number, not an email address, not a username on someone's server. The keypair is generated locally and the private key never leaves your device.
 
@@ -152,15 +154,13 @@ White Noise is best for:
 • Conversations where you don't want a phone number attached
 • Communication that should survive if Signal's infrastructure has problems
 • Anyone you're already connected with on Nostr
-• Groups where participants want stronger privacy from each other (unlike Signal groups, where the group admin's device sees everything)
 
 ### How to Access NanoClaw via White Noise
 
 1. Install the White Noise app (see Section 3.2 for full setup).
-2. Add NanoClaw's Nostr public key as a contact:
-   `npub16pg5zadrrhseg2qjt9lwfcl50zcc8alnt7mnaend3j04wjz4gnjqn6efzc`
-3. Start a direct message or join the NanoClaw group.
-4. Messages work the same as Signal — type naturally in a 1-on-1, use `@Jorgenclaw` in groups.
+2. Add *your agent's* Nostr public key (npub) as a contact.
+3. Start a direct message, or create a group that includes your agent.
+4. Messages work the same as Signal — type naturally in a 1-on-1, use your agent's trigger in groups.
 
 ### Signal vs. White Noise: Which to Use
 
@@ -171,7 +171,6 @@ White Noise is best for:
 | Phone number required | Yes | No |
 | Adoption in your contacts | Higher | Lower (growing) |
 | Censorship resistance | Moderate | High (no central authority) |
-| Privacy in group chats | Admin's device sees all messages | Participants have stronger separation |
 
 Most people start with Signal. White Noise is the right choice when you want stronger privacy guarantees or are already in the Nostr ecosystem.
 
@@ -361,7 +360,7 @@ A simple approach that works well over time: let 👍 mean "received," and save 
 
 ## 7.7 — Sovereignty-Native Calendar (Radicale + DAVx5)
 
-Proton Calendar is excellent but requires a paid Proton account for full use, and it's end-to-end encrypted in a way that prevents your AI agent from writing to it directly. For a $0 setup that lets your agent manage your calendar, use **Radicale**.
+Proton Calendar is excellent (included in the free Proton plan, with limits), but it's end-to-end encrypted in a way that prevents your AI agent from writing to it directly. For a $0 setup that lets your agent manage your calendar, use **Radicale**.
 
 ### What Radicale Is
 
@@ -382,11 +381,11 @@ This is important: **your AI agent should not have access to your personal calen
 
 The right model:
 - **Your personal Proton Calendar** — end-to-end encrypted, agent-inaccessible, just yours
-- **Your Radicale shared calendar** — agent can write to this (reminders, workshop sessions, tasks), you explicitly control what goes in
+- **Your Radicale shared calendar** — agent can write to this (reminders, events, tasks), you explicitly control what goes in
 
 You decide what the agent can see. That's what sovereignty means in practice.
 
-Your agent writes a workshop session to the Radicale calendar. You see it in Etar. Your personal appointments in Proton Calendar stay private. Both exist on your phone side by side — the user controls the boundary.
+Your agent writes an event to the Radicale calendar. You see it in Etar. Your personal appointments in Proton Calendar stay private. Both exist on your phone side by side — the user controls the boundary.
 
 ### Tools
 
@@ -409,8 +408,6 @@ Before setting up NanoClaw, it helps to know what you're trying to do. There are
 **Builder** — You want to understand how it works and customize it. You're technical or want to become technical.
 
 Most people are Personal. Some are Personal + Business. Builders are rare — but if that's you, the whole codebase is open.
-
-A full onboarding questionnaire (to map your needs to a specific NanoClaw configuration) is available at: [sovereignty.jorgenclaw.ai/start](https://sovereignty.jorgenclaw.ai/start)
 
 ---
 
