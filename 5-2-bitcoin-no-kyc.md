@@ -25,15 +25,15 @@ The tradeoff: these tools take a little more patience and setup than a regular e
 | Tool | Best for | Speed | Fees | Setup needed |
 |------|----------|-------|------|--------------|
 | *Bisq* | Larger amounts, cash-by-mail, maximum privacy | Minutes to 8 days depending on payment method | ~1.3% | Download app, small BTC deposit to start |
-| *RoboSats* | Smaller amounts, fast trades, simplest start | Average 8 minutes | ~0.2% | Just a browser or Android app |
+| *RoboSats* | Smaller amounts, fast trades (once you already hold a little Bitcoin) | Average 8 minutes | ~0.2% | Browser or Android app + a Lightning wallet with sats for the bond |
 
-If you're buying for the first time and want the simplest path: *start with RoboSats*.
+If you're buying for the first time and don't own any Bitcoin yet: *start with Bisq Easy* — it's the only option here that doesn't need Bitcoin up front (RoboSats requires a small Lightning bond from buyers).
 
 If you want maximum privacy (including cash-by-mail or postal money orders) and are willing to invest in a fuller setup: *use Bisq*.
 
 ---
 
-## Option A: RoboSats (Recommended Starting Point)
+## Option A: RoboSats (Fast, Once You Have Some Sats)
 
 ### What It Is
 
@@ -43,7 +43,7 @@ You don't create an account. Each time you use RoboSats, you get a "robot" — a
 
 ### What You Need Before Starting
 
-• A Lightning-compatible Bitcoin wallet (Phoenix, Zeus, or Mutiny are good choices — see Section 5.4 on wallets). You'll need a small amount of Bitcoin already in the wallet to place a "fidelity bond" (a tiny deposit that proves you're serious — you get it back after the trade).
+• A Lightning-compatible Bitcoin wallet (Phoenix or Zeus are good choices — see Section 5.4 on wallets). You'll need a small amount of Bitcoin already in the wallet to place a "fidelity bond" (a tiny deposit that proves you're serious — you get it back after the trade).
 • A way to send fiat to the seller: Zelle, Revolut, Cash App, or another payment method both you and the seller agree on.
 
 ### How to Access It
@@ -68,7 +68,7 @@ RoboSats is designed to be used privately. These access methods are listed from 
 
 *Success looks like:* Bitcoin arrives in your Lightning wallet, usually within 10 minutes of starting.
 
-*Trade limits:* Minimum ~20,000 sats (~$20). Maximum ~4,000,000 sats (~$4,000 at current prices). For larger amounts, use Bisq instead.
+*Trade limits:* Minimum about 20,000 sats; maximum about 4,000,000 sats. For larger amounts, use Bisq v1 instead.
 
 ### Troubleshooting
 
@@ -89,13 +89,13 @@ learn.robosats.org — full guides, fee structure, and access instructions.
 
 ### What It Is
 
-Bisq (pronounced "bisk") is a desktop application that runs entirely on your own computer. There are no company servers. When you trade, your Bitcoin is locked in a multi-signature escrow (a security system that requires both parties to unlock — Bisq itself cannot touch your funds). All traffic is routed through Tor automatically.
+Bisq (pronounced "bisk") is a desktop application that runs entirely on your own computer. There are no company servers, and all traffic is routed through Tor automatically. How a trade is protected depends on the version: Bisq v1 locks the Bitcoin in a multi-signature escrow (both parties must unlock it; Bisq itself can't touch the funds), while Bisq Easy has no escrow and relies on the seller's reputation.
 
 Bisq supports cash-by-mail and postal money orders, which are among the highest-privacy payment methods available — no digital trail whatsoever.
 
 There are two versions currently active:
 
-• *Bisq Easy (Bisq 2):* Simpler for small-to-medium amounts. No security deposit required for buyers. Sellers charge a higher premium (10–15% above market) in exchange for the lower barrier. Good starting point.
+• *Bisq Easy (Bisq 2):* Built for first-time buyers. No security deposit and no Bitcoin needed up front. Trades are capped (about $600 per trade; a seller's reputation sets their individual limit), and protection comes only from the seller's reputation — trade only with well-reputed sellers. Sellers charge a higher premium (10–15% above market) in exchange for the lower barrier. Good starting point.
 • *Bisq v1 (original):* Better for larger amounts. Uses a security deposit (a small amount of Bitcoin you put up as collateral). Stronger protections, lower premiums, but requires you to already have a small amount of BTC.
 
 ### Installing Bisq
@@ -155,7 +155,7 @@ bisq.wiki — detailed guides on every payment method, including cash by mail
 
 | Question | Answer |
 |----------|--------|
-| I want to start today with no Bitcoin at all | RoboSats (Bisq Easy also works) |
+| I want to start today with no Bitcoin at all | Bisq Easy |
 | I want to buy $500+ in one trade | Bisq v1 |
 | I want to use cash or postal money orders | Bisq |
 | I want it done in under 15 minutes | RoboSats |
