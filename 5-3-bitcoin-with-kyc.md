@@ -75,7 +75,7 @@ The phrase used in the Bitcoin community is: *"Not your keys, not your coins."*
 
 1. Go to river.com and create an account.
 2. Complete identity verification (name, address, government ID). This is the KYC step.
-3. Link a bank account or debit card to fund purchases.
+3. Link your bank account to fund purchases (River funds purchases by transfer from a linked bank account).
 4. Buy Bitcoin.
 5. *Immediately withdraw to your own wallet.* Don't leave it sitting on the exchange.
 
@@ -106,7 +106,7 @@ This is a reasonable long-term approach: River for ease and recurring buys, Bisq
 | Problem | What it means | What to do |
 |---------|--------------|------------|
 | Verification rejected | ID unclear, address mismatch, or restriction on your account type | Try re-submitting with a clearer photo; contact River support |
-| Bank transfer taking too long | ACH transfers typically take 1–3 business days | Plan ahead; use debit card for faster (but usually more expensive) funding |
+| Bank transfer taking too long | Bank transfers typically take 1–3 business days | Plan ahead — fund your account a few days before you want to buy |
 | Withdrawal not arriving in my wallet | Network congestion or you used the wrong address | Check the transaction ID on a block explorer (mempool.space); confirm you used the correct wallet address |
 | Forgot to set up auto-withdrawal | Bitcoin is sitting on River | Set it up now under account settings; withdraw manually in the meantime |
 
