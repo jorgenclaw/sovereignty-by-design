@@ -15,7 +15,7 @@
 Don't try to do everything at once. Start here:
 
 1. *Communications:* Install Signal + Molly. Switch email to ProtonMail → Part 3
-2. *Network:* Add Proton VPN (free tier works). Change your DNS → Part 4
+2. *Network:* Add Proton VPN (the free plan works on one device; whole-home protection needs a paid plan). Change your DNS → Part 4
 3. *Passwords:* Switch to Proton Pass or Bitwarden (both free, both excellent)
 4. *Money:* Get some Bitcoin into a wallet you control → Parts 5.1–5.4
 
@@ -238,7 +238,7 @@ bisq.wiki — Bisq documentation
 getmonero.org — Monero documentation
 litecoin.com/mweb — Litecoin MWEB documentation
 
-wasabiwallet.io — CoinJoin for on-chain Bitcoin privacy (advanced users)
+wasabiwallet.io — CoinJoin for on-chain Bitcoin privacy (advanced users; since 2024 you must choose a third-party coordinator)
 
 *→ River (KYC on-ramp, US-based, Bitcoin-only): [river.com/invite?r=6AI22CQ7BM](https://river.com/invite?r=6AI22CQ7BM)*
 *Disclosure: Referral link. Scott receives a small benefit. River is recommended regardless — it's the best KYC starting point for most US beginners. Use river.com directly if you prefer.*
