@@ -94,8 +94,8 @@ The guide is structured in layers, each building on the previous:
 | Part 2 | Device & OS | Your phone and computer as the hardware layer |
 | Part 3 | Communications | How your messages travel and who can read them |
 | Part 4 | Network | What your internet traffic reveals |
-| Part 5 | Money | Bitcoin and financial sovereignty |
-| Part 6 | Your Own Node | Verifying your own transactions |
+| Part 5 | Money | Bitcoin and financial sovereignty, including running your own node (5.7) |
+| Part 6 | Passwords & Authentication | Keeping your accounts from being taken over |
 | Part 7 | AI Agent Layer | A sovereign AI assistant inside the stack |
 
 You can read it linearly or jump to the section that matters most right now.
@@ -126,7 +126,7 @@ A complete sovereignty stack looks like this:
 │         Signal/Molly · White Noise · Nostr           │
 ├─────────────────────────────────────────────────────┤
 │                   NETWORK LAYER                      │
-│          VPN (Mullvad) · DNS (Quad9/NextDNS)         │
+│      VPN (Proton · Mullvad) · DNS (Quad9/NextDNS)    │
 ├─────────────────────────────────────────────────────┤
 │              DEVICE & OPERATING SYSTEM               │
 │         GrapheneOS (phone) · Linux (desktop)         │
@@ -147,14 +147,14 @@ You don't have to build all of this at once. Each layer stands on its own. A per
 
 *Money:* Bitcoin is self-custodied money: no bank required, no account to freeze, no permission needed to transact. Lightning makes small payments fast and cheap. Monero and Litecoin with MWEB add optional privacy.
 
-*AI Agent:* The layer this guide adds that others don't cover. Running an AI assistant inside your sovereignty stack gives you a capable, persistent assistant without feeding your daily life into a tech company's data warehouse.
+*AI Agent:* The layer this guide adds that others don't cover. Running an AI assistant inside your sovereignty stack gives you a capable, persistent assistant whose memory, files and identity stay on your own machine. Be clear about the trade-off: with a cloud AI service (Claude, ChatGPT), your conversations still go to that company to be processed. A privacy-focused service (Venice) or a model running on your own hardware (Ollama) closes that gap. Part 7 covers this.
 
 ### What It Costs
 
 The full stack has real costs:
 
 • *Time:* Setting everything up takes time. Maintaining it takes less, but it's ongoing.
-• *Money:* A Mullvad VPN subscription runs about $5/month. A ProtonMail account (free tier works for most use cases). A Pixel phone if you're switching to GrapheneOS. Bitcoin — start with whatever you can afford, even $20.
+• *Money:* A VPN subscription: Proton VPN has a free plan for one device, and a paid plan is needed for whole-home use; Mullvad is a flat €5/month. A Proton Mail account (free tier works for most use cases). A Pixel phone if you're switching to GrapheneOS. Bitcoin — start with whatever you can afford, even $20.
 • *Convenience:* Some things are harder with a sovereignty stack. Some apps don't work on GrapheneOS without Google services. Some merchants don't accept Bitcoin. The tradeoffs are real.
 
 None of these costs are prohibitive. The sovereignty stack is accessible to anyone with a modest budget and willingness to invest a few weekends.

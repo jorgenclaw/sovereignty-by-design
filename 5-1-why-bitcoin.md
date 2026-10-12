@@ -36,7 +36,7 @@ Bitcoin is a digital currency that runs on a decentralized network — thousands
 
 What this means practically:
 
-• *No one can freeze your Bitcoin.* Your Bitcoin is controlled by a cryptographic key — a long string of characters that acts like a password. Whoever holds the key controls the funds. If you hold your own key (Section 5.4 explains how), no bank, government, or court can stop you from transacting.
+• *No one can freeze your Bitcoin.* Your Bitcoin is controlled by a cryptographic key — a long string of characters that acts like a password. Whoever holds the key controls the funds. If you hold your own key (Section 5.4 explains how), no bank, government, or court can freeze or move your Bitcoin without that key.
 
 • *No one can inflate it away.* There will only ever be 21 million Bitcoin. This is enforced by code that all participants agree to run. No committee can decide to print more.
 
@@ -52,7 +52,7 @@ There's one concept in Bitcoin that matters more than anything else:
 
 *"Not your keys, not your coins."*
 
-When Bitcoin sits on an exchange (Coinbase, Kraken, any other service), you don't actually hold Bitcoin. You hold a promise from that exchange to give you Bitcoin if you ask. Exchanges have been hacked, gone bankrupt, and frozen withdrawals. Mt. Gox (2014): 850,000 Bitcoin gone. FTX (2022): $8 billion in customer funds gone. In both cases, people who had Bitcoin in their own wallets were unaffected. People who trusted exchanges lost everything.
+When Bitcoin sits on an exchange (Coinbase, Kraken, any other service), you don't actually hold Bitcoin. You hold a promise from that exchange to give you Bitcoin if you ask. Exchanges have been hacked, gone bankrupt, and frozen withdrawals. Mt. Gox (2014): 850,000 Bitcoin gone. FTX (2022): $8 billion in customer funds missing — customers waited years and were eventually repaid in dollars at 2022 prices, missing the rise since. In both cases, people who had Bitcoin in their own wallets were unaffected.
 
 Self-custody means holding your own keys in a wallet you control. It takes 10 minutes to set up. It's covered in Section 5.4.
 

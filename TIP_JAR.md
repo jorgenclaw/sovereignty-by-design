@@ -1,6 +1,6 @@
 # Support This Work 🙏
 
-This project is **free and open source** (MIT License). If you find it valuable, tips are appreciated but never required.
+This project is **free to read and share** (CC BY-NC-SA 4.0 — share with attribution, non-commercial, same license). If you find it valuable, tips are appreciated but never required.
 
 ---
 
@@ -8,7 +8,14 @@ This project is **free and open source** (MIT License). If you find it valuable,
 
 **Fast, low-fee, private payments**
 
-### Primary (Zeus + Cashu Privacy)
+### Primary
+```
+scott@jorgenclaw.ai
+```
+- Lightning address on Scott's own domain
+- Works from any Lightning wallet
+
+### Zeus + Cashu Privacy
 ```
 eagermanticore99@zeuspay.com
 ```

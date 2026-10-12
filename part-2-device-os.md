@@ -45,13 +45,13 @@ GrapheneOS is a mobile operating system based on Android, designed from the grou
 
 ### Hardware: Which Pixel to Buy
 
-GrapheneOS only runs on Pixel phones. This is by design — Pixel is the only hardware that allows you to relock the bootloader after installing a custom OS, which ensures the OS hasn't been tampered with.
+GrapheneOS only runs on Pixel phones today. This is by design — Pixel is currently the only hardware that meets its requirements, including relocking the bootloader after installing a custom OS, which ensures the OS hasn't been tampered with. GrapheneOS has announced a Motorola partner device (targeted for 2027); until it ships, it's Pixel only.
 
 *Check two pages before buying:*
 • grapheneos.org — shows which models are currently supported
 • endoflife.date/pixel — shows how long each model will receive security updates
 
-Choose a model that will receive updates for at least 2–3 more years.
+We recommend a *Pixel 9 or newer* (9, 10, 10a or 11 series). A Pixel 8 still works, but its update window ends sooner.
 
 *How to buy:*
 Pay cash at a physical electronics store (Best Buy, Walmart, etc.). Cash is more private than a credit card, which links your identity to the device's serial numbers.
@@ -59,7 +59,7 @@ Pay cash at a physical electronics store (Best Buy, Walmart, etc.). Cash is more
 *Avoid:*
 • Carrier-contract phones or "variant" devices — these often have OEM unlocking permanently disabled, which means you cannot install GrapheneOS. They may say "unlocked" but OEM unlocking and carrier unlocking are different things.
 • Refurbished phones from unknown sources — confirm with the original owner that OEM unlocking is enabled before buying used.
-• Buying online — creates a digital trail linking your identity to the device.
+• Buying online — creates a digital trail linking your identity to the device. (For most people this trade-off is fine; buying from the Google Store or a certified refurbisher is convenient and safe. Paying cash in a store is the maximum-privacy option.)
 
 ### Installing GrapheneOS
 
@@ -69,7 +69,7 @@ The installation process is simpler than it sounds. Naomi Brockwell's "How To DE
 • Your new Pixel (not yet set up)
 • A computer (Mac, Windows, or Linux — Mac tends to be most seamless)
 • A good quality USB-C cable (ideally the one that came with the phone)
-• A Chromium-based browser (Chrome, Brave with shields disabled, or Edge)
+• A supported browser: Chromium, Chrome, Edge, or Brave with Shields turned off. Don't use Snap or Flatpak browser builds, or a private/incognito window. Check the supported computers list at grapheneos.org/install/web first.
 
 *The process:*
 
@@ -82,7 +82,7 @@ The installation process is simpler than it sounds. Naomi Brockwell's "How To DE
 
 Each step has a clear confirmation button. The whole process takes 15–20 minutes. The website guides you through each confirmation prompt on the phone.
 
-*Success looks like:* The GrapheneOS logo appears when you power on the phone instead of the Android/Google logo. On your first boot, Google will show a warning screen about the non-standard OS — this is normal, dismiss it and proceed.
+*Success looks like:* The GrapheneOS logo appears when you power on the phone instead of the Android/Google logo. Before it, the phone shows a yellow notice that it's loading a different operating system, with an ID. That's normal — and it's your verification step: compare that ID with the official *verified boot key hash* for your model listed on grapheneos.org/install/web. For the strongest check, use GrapheneOS's *Auditor* app (it needs a second Android phone).
 
 ### Recommended First Settings
 
@@ -221,7 +221,7 @@ Why it's the best daily driver:
 
 *Getting LibreWolf:*
 - Desktop: librewolf.net — available for Windows, macOS, Linux
-- Android: Available via F-Droid (search "LibreWolf") or direct APK from the LibreWolf site
+- Android: LibreWolf has no Android version. On GrapheneOS, use the built-in *Vanadium* browser (GrapheneOS's hardened Chromium). If you want a Firefox-based option, *IronFox* (available via Accrescent or its F-Droid repository) is the closest equivalent.
 
 *The one tradeoff:* A small number of websites — particularly those relying on Google-specific Chromium APIs — won't work correctly. That's what Tier 2 is for.
 
@@ -261,6 +261,7 @@ When to use Tor Browser:
 
 | Browser | Engine | Best for | Privacy level | Speed |
 |---------|--------|----------|--------------|-------|
+| Vanadium | Chromium (hardened) | Default browser on GrapheneOS phones | Excellent | Fast |
 | LibreWolf | Firefox/Gecko | Daily browsing, most sites | Excellent | Fast |
 | Brave | Chromium | Sites that break in LibreWolf | Good | Fast |
 | Tor Browser | Firefox+Tor | Maximum anonymity, blocked sites | Strongest | Slow |

@@ -15,7 +15,7 @@
 Don't try to do everything at once. Start here:
 
 1. *Communications:* Install Signal + Molly. Switch email to ProtonMail → Part 3
-2. *Network:* Add Proton VPN (free tier works). Change your DNS → Part 4
+2. *Network:* Add Proton VPN (the free plan works on one device; whole-home protection needs a paid plan). Change your DNS → Part 4
 3. *Passwords:* Switch to Proton Pass or Bitwarden (both free, both excellent)
 4. *Money:* Get some Bitcoin into a wallet you control → Parts 5.1–5.4
 
@@ -61,6 +61,7 @@ That's enough for week one. The Proton suite handles steps 1–3 under one accou
 - [5.4 — Wallets: Storing What You Own](5-4-wallets.md) *(Cake Wallet, Zeus, Cashu)*
 - [5.5 — Lightning Payments](5-5-lightning.md)
 - [5.6 — Other PoW Privacy Coins](5-6-privacy-coins.md) *(Monero + Litecoin MWEB)*
+- [5.7 — Your Own Node with Parmanode](5-7-your-own-node.md)
 
 ### Part 6: Passwords & Authentication
 - [Part 6: Passwords & Authentication](part-6-passwords-authentication.md)
@@ -71,19 +72,14 @@ That's enough for week one. The Proton suite handles steps 1–3 under one accou
 
 ### Part 7: The AI Agent Layer
 - [Part 7: The AI Agent Layer](part-7-ai-agent-layer.md)
+  - 7.0 — Do You Need a Paid Proton Account?
   - 7.1 — What NanoClaw Is
   - 7.2 — Setup: Signal + Molly + NanoClaw
-  - 7.3 — Setup: White Noise + NanoClaw
-  - 7.4 — How the Keys Work (Signing Daemon Architecture)
-  - 7.5 — What Kind of Agent Is This?
-  - 7.6 — What You Can Ask Your Agent
-
-### Workshop Curriculum
-- [Come As You Are — Privacy Workshop](workshop-come-as-you-are.md)
-  - Session structure (90 min)
-  - Handout: Six Things to Do This Week
-  - Facilitator notes
-  - Recommended opening video: "Privacy 101" by Naomi Brockwell
+  - 7.3 — Choosing the AI Behind Your Agent *(Claude · ChatGPT · Venice · local via Ollama)*
+  - 7.4 — What You Can Ask Your Agent
+  - 7.5 — Sovereignty-Native Calendar (Radicale)
+  - 7.6 — Which Track Are You?
+  - *7B — How Jorgenclaw Does It (copy what you like):* 7.7 Scott's Chat Setup · 7.8 White Noise · 7.9 Nostr Identity & Signing Keys · 7.10 Personality (soul.md) · 7.11 Emoji Feedback
 
 ### Appendices
 - [Appendix A — Threat Modeling Worksheet](#appendix-a) *(below)*
@@ -238,7 +234,7 @@ bisq.wiki — Bisq documentation
 getmonero.org — Monero documentation
 litecoin.com/mweb — Litecoin MWEB documentation
 
-wasabiwallet.io — CoinJoin for on-chain Bitcoin privacy (advanced users)
+wasabiwallet.io — CoinJoin for on-chain Bitcoin privacy (advanced users; since 2024 you must choose a third-party coordinator)
 
 *→ River (KYC on-ramp, US-based, Bitcoin-only): [river.com/invite?r=6AI22CQ7BM](https://river.com/invite?r=6AI22CQ7BM)*
 *Disclosure: Referral link. Scott receives a small benefit. River is recommended regardless — it's the best KYC starting point for most US beginners. Use river.com directly if you prefer.*

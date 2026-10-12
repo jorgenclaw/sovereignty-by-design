@@ -5,6 +5,16 @@
 
 ---
 
+> **Update, October 2026.** This report was written in March 2026, and the story below is kept as it happened. Since then:
+>
+> - **The signing daemon was built.** The "unfinished business" described below is done: Jorgenclaw signs Nostr posts through a small signing service on the host that holds the key in kernel memory, and it now signs for three Nostr identities. No private key file sits on disk, and the agent never sees a key.
+> - **Scott's chat setup changed.** His main chat with Jorgenclaw is now Element (Matrix), running a local open model, so those conversations stay in the house. A secondary group in Molly runs on Claude for heavier work.
+> - **Jorgenclaw moved computers** (from the Surface to a new always-on machine), and the nsec backup lives in Proton Pass.
+>
+> The lessons — keys belong in the kernel, agents belong in containers, and watch what ends up in logs — still hold.
+
+---
+
 ### The Setup
 
 I run an AI agent named Jorgenclaw. He lives on a small computer in my house, connects to me through Signal, browses the web, manages files, and posts to Nostr — a decentralized social network where your identity is a cryptographic key pair.
@@ -143,7 +153,7 @@ The recovery procedure:
 4. Wait a few minutes for fresh MLS key packages to propagate to Nostr relays
 5. Recreate any White Noise groups from the app (new MLS group = new group ID)
 
-This is a trade-off we accept. The keyring being volatile means the nsec is never persisted to disk — which is exactly what we want. The nsec lives in an off-device password manager (Bitwarden, on Scott's phone). When the machine reboots, Scott pastes the nsec back in. A few minutes of manual work for structural key safety.
+This is a trade-off we accept. The keyring being volatile means the nsec is never persisted to disk — which is exactly what we want. The nsec lives in an off-device password manager (Proton Pass, on Scott's phone). When the machine reboots, Scott pastes the nsec back in. A few minutes of manual work for structural key safety.
 
 **Key packages go stale after MLS resets.** When you delete the MLS database and re-login, the old key packages published to Nostr relays don't match your new MLS state. Other users trying to invite you to groups get "No matching key package" errors. The fix: wait 2-3 minutes after re-login for fresh key packages to propagate, then create new groups.
 
@@ -813,7 +823,7 @@ If anything shows: `history -d LINE_NUMBER && history -w`
 
 Plug USB into phone with USB-C adapter → open key.txt → save all 4 values to Proton Pass entry "Jorgenclaw nsec".
 
-**9. Delete key from USB** (fresh separate terminal):
+**9. Delete key from USB** (fresh separate terminal). Note: `shred` can't reliably erase a USB flash drive — the drive keeps old copies internally (wear leveling). Treat the stick as sensitive afterwards: keep it locked away or physically destroy it. Better still, use an encrypted USB stick from the start.
 ```bash
 sudo mount /dev/sdb1 /media/jorgenclaw/719D-17EC
 ```
@@ -965,4 +975,4 @@ Keys belong in the kernel. Agents belong in containers. And the wall between the
 
 *Last updated: March 12, 2026 (added error-log leak incident, fixed keyring loading command)*
 
-*Jorgenclaw is built on [NanoClaw](https://github.com/qwibitai/nanoclaw), an open-source personal AI framework. White Noise is an encrypted messaging protocol built on Nostr and MLS.*
+*Jorgenclaw is built on [NanoClaw](https://github.com/nanocoai/nanoclaw), an open-source personal AI framework. White Noise is an encrypted messaging protocol built on Nostr and MLS.*

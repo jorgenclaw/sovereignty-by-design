@@ -30,7 +30,7 @@ The first and most practical privacy upgrade for Bitcoin isn't a different coin 
 
 For on-chain Bitcoin that needs more privacy, *CoinJoin* is the established technique. CoinJoin works by combining multiple people's Bitcoin transactions into one large transaction, making it difficult to determine which inputs correspond to which outputs. An outside observer sees one big transaction — not which coins went where.
 
-*Wasabi Wallet* (wasabiwallet.io) is the most mature CoinJoin implementation for Bitcoin. It automates the coordination of CoinJoin rounds with other users and includes coin control so you can manage which outputs you spend together.
+*Wasabi Wallet* (wasabiwallet.io) is the most mature CoinJoin implementation for Bitcoin. It automates CoinJoin rounds with other users and includes coin control so you can manage which outputs you spend together. Note: Wasabi's original default coordinator (zkSNACKs) shut down in June 2024, so you now need to choose a third-party coordinator — research its reputation first.
 
 A few things worth knowing:
 • CoinJoin is legal. It's not money laundering — it's mixing your own coins with other people's coins for privacy.
@@ -51,7 +51,7 @@ PayJoin is less common today — it requires both the sender's and receiver's wa
 | Layer | Tool | Privacy level | Who it's for |
 |-------|------|--------------|--------------|
 | Lightning | Zeus / Cake Wallet | Good — off-chain, not publicly visible | Everyone doing everyday payments |
-| Lightning + Cashu | Zeus with Cashu | Strong — blind signatures, no link to identity | Anyone wanting cash-like privacy |
+| Lightning + Cashu | Zeus with Cashu | Strong — blind signatures, no link to identity (custodial: trust the mint) | Small amounts with cash-like privacy |
 | On-chain CoinJoin | Wasabi Wallet | Strong — breaks chain analysis | Advanced users with on-chain privacy needs |
 | PayJoin | Wallet-dependent | Moderate — breaks basic chain analysis | Users whose wallets support it |
 | Monero | Cake Wallet / Feather | Maximum — private by default at protocol level | When Bitcoin privacy tools aren't enough |
@@ -97,7 +97,7 @@ Monero isn't a better version of Bitcoin — it serves a different role. Conside
 
 The easiest non-KYC path: use a swap service like Cake Wallet's built-in swap or a dedicated swap tool. You send Bitcoin, you receive Monero, no account required. See Section 5.4 on Cake Wallet.
 
-For Monero purchased with fiat: Bisq supports Monero trading (not just Bitcoin), and the same no-KYC approaches from Section 5.2 apply.
+Buying Monero with dollars directly is hard: Bisq's Monero market trades Monero for Bitcoin, not for dollars. The usual path is to buy Bitcoin first (Sections 5.2/5.3), then trade it for Monero on Bisq or swap it in Cake Wallet.
 
 ### Storing Monero
 
@@ -118,7 +118,7 @@ Litecoin (LTC) launched in 2011 as a close technical sibling to Bitcoin. The key
 | Feature | Bitcoin | Litecoin |
 |---------|---------|----------|
 | Block time | 10 minutes | 2.5 minutes (4× faster) |
-| Transaction fee | ~$0.49 average | ~$0.006 average (80× cheaper) |
+| Transaction fee | Varies with demand; often under a dollar | Usually a small fraction of a cent |
 | Supply cap | 21 million | 84 million |
 | Mining algorithm | SHA-256 | Scrypt |
 
@@ -131,7 +131,7 @@ MWEB stands for *MimbleWimble Extension Blocks* — a privacy upgrade that activ
 MWEB adds optional confidential transactions to Litecoin:
 
 • *Amounts are hidden* — when you move LTC into the MWEB layer, transaction amounts are no longer visible on the public blockchain
-• *Native transaction mixing* — MWEB includes built-in CoinJoin (a technique that blends multiple transactions together to obscure who paid whom)
+• *Built-in transaction blending* — MWEB uses MimbleWimble, which merges transactions together so outside observers can't easily tell who paid whom (similar in effect to CoinJoin, but automatic and non-interactive)
 • *Stealth addresses* — recipients can receive funds to a one-time address, so their main address doesn't appear on the chain
 
 The key word is *optional*. You choose when to move funds into the MWEB layer for privacy, and when to move back out to the regular transparent chain. MWEB transactions stay in "extension blocks" alongside (but separate from) the main Litecoin chain.
@@ -149,13 +149,13 @@ The key word is *optional*. You choose when to move funds into the MWEB layer fo
 
 ### When to Use Litecoin with MWEB
 
-• *Small, frequent transactions* where Bitcoin's fees would eat into the value — sending $5 worth of value on-chain in Bitcoin costs ~$0.49 in fees; on Litecoin it costs ~$0.006.
+• *Small, frequent transactions* where Bitcoin's on-chain fees would eat into the value — Litecoin fees are usually a small fraction of a cent.
 • *On-chain payments without Lightning complexity* — Litecoin's low fees make on-chain transactions practical for everyday amounts, without the channel management that Lightning requires.
 • *Privacy for specific transactions* — move funds into MWEB when you need confidentiality, then back out when you want interoperability.
 
 ### Exchange Caution
 
-Some exchanges (including Binance) have issued warnings about MWEB transactions due to regulatory pressure around privacy features. This is worth knowing: if you ever want to move MWEB Litecoin to an exchange for sale, verify they support it first. Coinbase and Bitget have supported MWEB; others haven't.
+Some exchanges have issued warnings about MWEB transactions due to regulatory pressure around privacy features. If you ever want to move MWEB Litecoin to an exchange for sale, check with that exchange first — support varies and changes.
 
 This isn't unique to Litecoin — Monero faces the same friction with exchanges. It's a sign that these privacy features are working, not that they're flawed.
 
@@ -163,7 +163,7 @@ This isn't unique to Litecoin — Monero faces the same friction with exchanges.
 
 *Cake Wallet* supports Litecoin with MWEB natively — the simplest option. You can receive, send, and opt into MWEB from within the same wallet you use for Bitcoin and Monero.
 
-To get Litecoin without KYC: Bisq supports LTC trading. The same P2P marketplace approach from Section 5.2 applies — search for LTC offers rather than BTC offers.
+To get Litecoin without KYC: Bisq's Litecoin market trades Litecoin for Bitcoin (not dollars), or you can swap inside Cake Wallet — buy Bitcoin first using Section 5.2.
 
 ---
 
@@ -186,7 +186,7 @@ For most people, the right progression looks like this:
 
 1. *Get Bitcoin.* Self-custody it. (Sections 5.2–5.4)
 2. *Use Lightning for everyday payments.* This handles most privacy needs without any extra tooling. (Section 5.5)
-3. *Add Cashu for cash-like privacy.* If Lightning isn't private enough for a specific transaction. (Section 5.4)
+3. *Add Cashu for cash-like privacy.* If Lightning isn't private enough for a specific transaction — small amounts only, since the mint holds the funds. (Section 5.4)
 4. *Reach for Monero when you need maximum protocol-level privacy.* When Bitcoin's tools aren't enough.
 5. *Learn CoinJoin (Wasabi) if you have specific on-chain privacy requirements.* This is the deep end — powerful, but requires discipline.
 
@@ -200,4 +200,5 @@ The goal isn't to collect coins. It's to have the right tool for each job, and t
 - *Section 5.1* — Why Bitcoin (the foundation)
 - *Section 5.2* — Getting Bitcoin without KYC
 - *Section 5.4* — Wallets (Cake Wallet supports Monero and Litecoin alongside Bitcoin)
+- *Section 5.7* — Your own node with Parmanode
 - *Further Reading: Appendix D* — getmonero.org, litecoin.com/mweb

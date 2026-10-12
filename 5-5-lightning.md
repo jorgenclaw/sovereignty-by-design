@@ -18,12 +18,12 @@ Lightning is what makes Bitcoin practical as everyday money — and it's also Bi
 
 This second point is underappreciated. On-chain Bitcoin is fully public: every transaction, every amount, every address is visible on the blockchain forever. Lightning payments don't go on the blockchain at all. They route through a network of encrypted channels. No one monitoring the blockchain can see that a payment happened, how much it was, or who the parties were. The payment exists only between the two participants and the routing nodes — none of whom see the full picture.
 
-For the vast majority of people doing everyday transactions, Lightning isn't just more convenient than on-chain Bitcoin — it's meaningfully more private. It doesn't require understanding coinjoin, running a full node, or holding Monero. Lightning with Cashu on top (see Section 5.4) gives you practical financial privacy without specialized knowledge.
+For the vast majority of people doing everyday transactions, Lightning isn't just more convenient than on-chain Bitcoin — it's meaningfully more private. It doesn't require understanding coinjoin, running a full node, or holding Monero. One caveat: the wallet or service that connects you to Lightning can see your payments, and a custodial Lightning wallet sees everything. Lightning with Cashu on top (see Section 5.4) adds more privacy, at the cost of trusting the Cashu mint with your funds.
 
 Think of it this way:
 - *On-chain Bitcoin:* your transactions are public ledger entries, permanent and traceable. Fine for large settlements and savings.
 - *Lightning:* payments are off-chain, fast, cheap, and not visible to blockchain observers. The right tool for everyday spending.
-- *Cashu on Lightning:* fully private digital cash. Even the Lightning routing nodes don't see the full picture.
+- *Cashu on Lightning:* cash-like privacy, but custodial — the mint holds the Bitcoin. Small amounts only.
 
 ---
 
@@ -46,8 +46,8 @@ A Lightning address looks like an email address: `you@wallet.domain`
 This is much more user-friendly than a traditional Bitcoin address (a long string of letters and numbers that changes every time). Lightning addresses are permanent, easy to share, and work across any Lightning-compatible wallet.
 
 Examples of what they look like:
-- `scott@zeusln.app`
-- `jorgenclaw@npub.cash`
+- `you@zeuspay.com`
+- `you@cake.cash`
 
 If you're setting up Zeus with your own node, you can get a Lightning address through services like Olympus by Zeus. Cake Wallet provides Lightning addresses in the format `you@cake.cash`.
 
@@ -121,7 +121,7 @@ With Cashu:
 - You convert Bitcoin into Cashu tokens at a mint
 - Tokens can be sent peer-to-peer with no on-chain trace
 - The mint uses blind signatures — it can't link tokens to your identity
-- Tokens are redeemable back to Bitcoin at any time
+- Tokens are redeemable back to Bitcoin — as long as the mint stays honest and online (Cashu is custodial: keep small amounts)
 
 Think of Cashu as digital cash: you take money from your wallet (Bitcoin), get bills from an ATM (Cashu mint), and spend those bills privately. The bills work; the ATM doesn't know where you spent them.
 
@@ -141,4 +141,4 @@ Think of Cashu as digital cash: you take money from your wallet (Bitcoin), get b
 
 *See also:*
 - *Section 5.4* — Wallets (Zeus for Lightning, Cake Wallet as alternative)
-- *Section 6* — Running your own node (connects Zeus to sovereign Lightning infrastructure)
+- *Section 5.7* — Your own node with Parmanode (connect Zeus to it for sovereign Lightning infrastructure)
