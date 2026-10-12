@@ -82,13 +82,15 @@ The tradeoff: convenience. Auto-fill and sync between devices requires more manu
 
 **Backing up a KeePass vault:** Keep at least two copies — one on your computer, one on a USB drive stored somewhere other than your desk. The vault is encrypted and safe to copy anywhere. If you lose it with no backup, there is no recovery.
 
-**Syncing your vault:** You can manually back up your `.kdbx` file to Proton Drive — it syncs encrypted and Proton cannot read it. Note: automated backup via AI agent is not reliable at this time (Proton Drive does not expose a stable programmatic interface for agent use). Manual backup is the current recommended approach.
+**Syncing your vault:** You can manually back up your `.kdbx` file to Proton Drive — it syncs encrypted and Proton cannot read it.
 
 ### Advanced: Self-Hosted Bitwarden (Vaultwarden)
 
 If you're running your own server (like a mini PC or Raspberry Pi), *Vaultwarden* is a lightweight, open-source Bitwarden-compatible server you can host yourself. You get all the convenience of Bitwarden — browser extension, mobile auto-fill, team sharing — with the vault sitting entirely on your hardware.
 
-This is the builder-track option. If you're running NanoClaw on your own machine, adding Vaultwarden takes about 30 minutes and your AI agent can interact with it via the Bitwarden CLI.
+This is the builder option. If you're running your own home server, adding Vaultwarden takes about 30 minutes.
+
+> *Don't give your AI agent access to your password vault.* The same principle as the key-safety report applies: whatever your agent can read, it can be tricked into revealing, and a cloud AI service sees whatever the agent reads. Keep the vault for you.
 
 Reference: https://github.com/dani-garcia/vaultwarden
 
@@ -135,7 +137,7 @@ The key distinction is *what kind* of second factor you use:
 *Aegis* (getaegis.app) is the recommended 2FA app for Android. It's free, open-source, and stores codes in an encrypted local database that only you control.
 
 What sets Aegis apart from alternatives like Google Authenticator:
-- *Encrypted backup* — you can export your vault as an encrypted file and keep it somewhere safe. Google Authenticator can't do this without being tied to a Google account.
+- *Encrypted backup* — you can export your vault as an encrypted file and keep it somewhere safe, with no account of any kind.
 - *No cloud sync* — codes never leave your device
 - *Import/export* — migrating to a new phone is straightforward
 - *Open-source* — the code is public and audited
@@ -153,15 +155,19 @@ What sets Aegis apart from alternatives like Google Authenticator:
 4. Signal (Registration Lock — see Section 3.1)
 5. Any account that holds money or sensitive data
 
+### Passkeys
+
+Many sites now offer *passkeys* — a login that replaces the password with a key stored on your device or in your password manager. Passkeys can't be phished or reused on another site. Proton Pass and Bitwarden both store passkeys, so when a site offers one, it's a good choice for that account.
+
 ### What About Google Authenticator?
 
-Avoid it. Google Authenticator now requires a Google account and syncs to Google's servers by default. Your 2FA codes — the thing protecting your accounts from Google — being stored on Google's servers defeats the point. Aegis is strictly better.
+Prefer Aegis. Google Authenticator works without an account, but it pushes you to sign in and sync your codes to Google's servers, it isn't open source, and its backup options are more limited. Your 2FA codes protect everything else — keep them in an open-source app with encrypted backups you control.
 
 ### Backup Codes
 
 When you enable 2FA on any site, you're usually given backup codes — a set of single-use codes to use if you lose your phone. *These matter.*
 
-Store them in your password manager (as a note attached to the login entry). Don't print them and leave them on your desk. Don't put them in an unencrypted file. In your encrypted vault is the right place.
+Store them in your password manager (as a note attached to the login entry). Don't print them and leave them on your desk. Don't put them in an unencrypted file. For most people, the encrypted vault is the right place — just know it puts both factors behind one master password, so protect that password well.
 
 ---
 
