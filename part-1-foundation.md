@@ -94,7 +94,7 @@ The guide is structured in layers, each building on the previous:
 | Part 2 | Device & OS | Your phone and computer as the hardware layer |
 | Part 3 | Communications | How your messages travel and who can read them |
 | Part 4 | Network | What your internet traffic reveals |
-| Part 5 | Money | Bitcoin and financial sovereignty |
+| Part 5 | Money | Bitcoin and financial sovereignty, including running your own node (5.7) |
 | Part 6 | Passwords & Authentication | Keeping your accounts from being taken over |
 | Part 7 | AI Agent Layer | A sovereign AI assistant inside the stack |
 

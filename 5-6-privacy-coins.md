@@ -200,4 +200,5 @@ The goal isn't to collect coins. It's to have the right tool for each job, and t
 - *Section 5.1* — Why Bitcoin (the foundation)
 - *Section 5.2* — Getting Bitcoin without KYC
 - *Section 5.4* — Wallets (Cake Wallet supports Monero and Litecoin alongside Bitcoin)
+- *Section 5.7* — Your own node with Parmanode
 - *Further Reading: Appendix D* — getmonero.org, litecoin.com/mweb

@@ -141,4 +141,4 @@ Think of Cashu as digital cash: you take money from your wallet (Bitcoin), get b
 
 *See also:*
 - *Section 5.4* — Wallets (Zeus for Lightning, Cake Wallet as alternative)
-- *Running your own node* — Parmanode (parmanode.com); connect Zeus to it for sovereign Lightning infrastructure
+- *Section 5.7* — Your own node with Parmanode (connect Zeus to it for sovereign Lightning infrastructure)

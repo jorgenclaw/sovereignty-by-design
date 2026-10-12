@@ -67,7 +67,7 @@ This guide only recommends self-custodial and hardware wallets. Custodial wallet
 
 *Best for:* People who are running (or plan to run) their own Bitcoin node, or who use Lightning heavily and want maximum privacy.
 
-*Setup path:* Zeus connects to a node you run yourself — for example one installed with Parmanode (parmanode.com) — for a fully sovereign setup. This takes more time to configure but gives you the cleanest stack.
+*Setup path:* Zeus connects to a node you run yourself — for example one installed with Parmanode (Section 5.7) — for a fully sovereign setup. This takes more time to configure but gives you the cleanest stack.
 
 *Website:* zeusln.com
 
@@ -174,4 +174,4 @@ No legitimate wallet app, exchange, or support team will ever ask for your seed 
 
 *See also:*
 - *Section 5.5* — Lightning payments (how to use Zeus for fast cheap transactions)
-- *Running your own node* — Parmanode (parmanode.com) installs Bitcoin Core and companion tools on a Linux computer
+- *Section 5.7* — Your own node with Parmanode (connecting Zeus to it)
