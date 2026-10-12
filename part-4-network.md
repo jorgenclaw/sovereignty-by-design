@@ -34,7 +34,7 @@ Changing your DNS resolver is the single easiest privacy improvement you can mak
 
 *Proton DNS* — If you're using Proton VPN (see 4.2), your DNS queries are automatically routed through Proton's servers and encrypted. No separate setup needed — the VPN handles it.
 
-*NextDNS* — Free tier available; paid plans add custom blocklists, analytics, and per-device configuration. Good for families wanting to block ads and trackers network-wide. Based in France.
+*NextDNS* — Free tier available; paid plans add custom blocklists, analytics, and per-device configuration. Good for families wanting to block ads and trackers network-wide. A US company (founders based in France).
 
 *Mullvad DNS* — Free, run by Mullvad VPN, strong no-logs track record. Natural pairing if you go the Mullvad route.
 
@@ -102,7 +102,7 @@ Why Proton VPN works well for most people:
 • *Open-source client* — All apps are published on GitHub and audited.
 • *Strong no-logs policy* — Headquartered in Switzerland, audited by independent security firms.
 • *Integrated DNS protection* — When connected, your DNS queries automatically go through Proton's servers. No separate DNS configuration needed.
-• *Paid plans accept cryptocurrency* — Use Bitcoin or Monero if you want no identity link to your subscription.
+• *Paid plans accept Bitcoin* — on-chain Bitcoin (no Lightning, no autopay) or cash, if you want less identity linked to your subscription. Proton does not accept Monero.
 
 *Setting up Proton VPN:*
 
@@ -141,7 +141,7 @@ Why Proton VPN works well for most people:
 
 ### VPN at the Router Level
 
-Both Proton VPN and Mullvad support router-level configuration — meaning every device on your home network routes through the VPN with no per-device setup. This covers IoT devices (smart TVs, speakers, thermostats) that can't run a VPN app themselves.
+Both Proton VPN and Mullvad support router-level configuration — meaning every device on your home network routes through the VPN with no per-device setup. This covers IoT devices (smart TVs, speakers, thermostats) that can't run a VPN app themselves. Whole-home use needs a *paid* VPN plan — the free Proton plan is for a single device, and its servers are also the ones streaming services block most often.
 
 Requires a router that supports WireGuard or OpenVPN — pfSense (see 4.3), OPNsense, or most newer Asus routers handle this.
 
@@ -181,16 +181,16 @@ A 2020 security report found that nearly every consumer router tested had seriou
 • Create a guest network for IoT devices (smart TVs, thermostats, speakers) so they can't see your personal devices
 
 *Level 2 — Pi-hole for network-wide ad/tracker blocking (1–2 hours):*
-Pi-hole is free, open-source software that runs on a Raspberry Pi (a $35 small computer) on your network. It blocks requests to advertising and tracking domains before they ever reach your devices. Every device on your network benefits — no per-device setup. Combined with Quad9 or NextDNS as upstream DNS, this is a powerful privacy layer.
+Pi-hole is free, open-source software that runs on a Raspberry Pi (an inexpensive small computer) on your network. It blocks requests to advertising and tracking domains before they ever reach your devices. Every device on your network benefits — no per-device setup. Combined with Quad9 or NextDNS as upstream DNS, this is a powerful privacy layer.
 
 *Level 3 — pfSense on dedicated hardware (a weekend project):*
-For full control over your network, replace the consumer router entirely with a dedicated device running pfSense — free, open-source firewall and router software. This is what Naomi Brockwell covers in her "You won't believe how UNSAFE your home router is!" video.
+For full control over your network, replace the consumer router entirely with a dedicated device running pfSense — free, open-source firewall and router software. This is what Naomi Brockwell covers in her "You won't believe how UNSAFE your home router is!" video. (As of October 2026 the current version is pfSense CE 2.8.1, installed with Netgate's online installer from shop.netgate.com; Netgate publishes SHA-256 checksums to verify the download. OPNsense is a fully open alternative.)
 
-The hardware she recommends: a *Protectly Vault* — a small dedicated device pre-installed with Coreboot (open-source firmware, transparent and auditable). You install pfSense on it, connect it between your modem and the rest of your network, and put your old router into "AP mode" (Access Point mode — Wi-Fi only, with everything else disabled).
+The hardware she recommends: a *Protectli Vault* — a small dedicated device that can be ordered with coreboot on many models (open-source firmware, transparent and auditable; other models ship with standard AMI firmware). You install pfSense on it, connect it between your modem and the rest of your network, and put your old router into "AP mode" (Access Point mode — Wi-Fi only, with everything else disabled).
 
 pfSense gives you what she calls "nerd knobs" — complete control over every aspect of your network: block outbound telemetry, segment IoT devices, run a whole-home VPN, set custom DNS rules. It's the setup used by serious privacy and security practitioners.
 
-*Naomi Brockwell's "You won't believe how UNSAFE your home router is!" walks through the full pfSense + Protectly Vault installation step by step. Recommended before attempting Level 3.*
+*Naomi Brockwell's "You won't believe how UNSAFE your home router is!" walks through the full pfSense + Protectli Vault installation step by step. Recommended before attempting Level 3.*
 
 ### Firewall Basics
 
@@ -206,4 +206,4 @@ Key things a properly configured firewall can block:
 
 ---
 
-*Related: Section 4.1 shows how DNS and VPN work together. For the most effective setup, configure DNS at the router level and use Mullvad VPN on individual devices for additional protection when on public networks.*
+*Related: Section 4.1 shows how DNS and VPN work together. For the most effective setup, configure DNS at the router level and use your VPN app (Proton for most people, or Mullvad for maximum anonymity) on individual devices for protection on public networks.*
