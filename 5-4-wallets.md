@@ -50,7 +50,7 @@ This guide only recommends self-custodial and hardware wallets. Custodial wallet
 *Best for:* Someone who wants Bitcoin, Litecoin, and Monero accessible from one app, with good defaults.
 
 *Website:* cakewallet.com
-*Lightning support:* Introduced in Cake Wallet v6 — still maturing; for serious Lightning use, see Zeus below.
+*Lightning support:* Added in Cake Wallet v6 (2026). It runs on the Spark layer through the Breez SDK and includes a Lightning address (you@cake.cash). Spark has its own trust trade-offs compared with ordinary Lightning; for serious Lightning use, see Zeus below.
 
 ---
 
@@ -65,9 +65,9 @@ This guide only recommends self-custodial and hardware wallets. Custodial wallet
 • AGPL v3 open source license — the strongest open-source licensing available
 • Full node control means no third party can freeze your Lightning channels
 
-*Best for:* People who are running (or plan to run) their own Bitcoin node (Section 6), or who use Lightning heavily and want maximum privacy.
+*Best for:* People who are running (or plan to run) their own Bitcoin node, or who use Lightning heavily and want maximum privacy.
 
-*Setup path:* Zeus connects to Parmanode (Section 6) for a fully sovereign setup. This takes more time to configure but gives you the cleanest stack.
+*Setup path:* Zeus connects to a node you run yourself — for example one installed with Parmanode (parmanode.com) — for a fully sovereign setup. This takes more time to configure but gives you the cleanest stack.
 
 *Website:* zeusln.com
 
@@ -77,7 +77,9 @@ This guide only recommends self-custodial and hardware wallets. Custodial wallet
 
 *What it is:* Not a wallet you install separately — Cashu is a privacy protocol that some wallets (including Zeus) integrate. It uses blind signatures (a cryptographic technique borrowed from digital cash systems) to make Lightning payments private.
 
-*Why it matters:* Even Lightning transactions leave some metadata. Cashu tokens are like digital cash — the mint that issues them can't see your balance, can't see who you're paying, and can't connect your identity to your transactions. Think of it as the Monero of the Lightning world.
+*Why it matters:* Even Lightning transactions leave some metadata. Cashu tokens are like digital cash — the mint that issues them can't see who you're paying or connect your identity to your transactions.
+
+*The catch: Cashu is custodial.* The mint holds the actual Bitcoin; your tokens are only worth something while the mint stays honest and online. Unlike the rest of this section, that means trusting a third party — so treat Cashu like cash in your pocket: small amounts only.
 
 *Best for:* Situations where you want Lightning speed with Monero-level privacy — receiving tips, paying for services where you don't want a record.
 
@@ -127,8 +129,8 @@ Your private keys never touch the internet. Ever.
 
 *Reputable options:*
 • *Foundation Passport* (and the newer *Passport Prime*) — Bitcoin-only, open source hardware and firmware, airgapped. Built in the US. Designed for usability alongside sovereignty. The option most aligned with this guide's philosophy.
-• *Coldcard* — Bitcoin-only, maximum security, open source. Recommended by Bitcoin security experts. Higher learning curve.
-• *Trezor Model T* — Multi-coin, widely used, long track record. Less opinionated than the options above.
+• *Coldcard* — Bitcoin-only, maximum security, source-available (the code is public, under a license that limits commercial reuse). Recommended by Bitcoin security experts. Higher learning curve.
+• *Trezor Safe 3 / Safe 5* — Multi-coin, widely used, long track record (the older Model T is discontinued). Less opinionated than the options above.
 
 *Note:* Buy hardware wallets only from the manufacturer's official website. Never from third-party sellers on Amazon or eBay — tampered devices have been documented in the wild.
 
@@ -172,4 +174,4 @@ No legitimate wallet app, exchange, or support team will ever ask for your seed 
 
 *See also:*
 - *Section 5.5* — Lightning payments (how to use Zeus for fast cheap transactions)
-- *Section 6* — Running your own node (connecting Zeus to Parmanode)
+- *Running your own node* — Parmanode (parmanode.com) installs Bitcoin Core and companion tools on a Linux computer
