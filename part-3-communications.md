@@ -93,7 +93,7 @@ Molly also adds some security improvements over the standard Signal app: encrypt
 | Problem | What it means | What to do |
 |---------|--------------|------------|
 | Contacts can't find me | Your number may not be discoverable | Check Settings → Privacy → Phone Number and adjust "Who can find me" |
-| Notifications delayed on GrapheneOS | No Google Push services | This is expected; messages arrive when you open the app. Install UnifiedPush for better notification delivery |
+| Notifications on GrapheneOS without Google Play | No Google push service | Signal and Molly keep their own background connection, so notifications still arrive (it uses a little more battery). Molly also supports UnifiedPush |
 | Molly and Signal conflict | Both apps competing for the same number | Each app must use a different phone number |
 | "Registration required" error | Your registration lock PIN is needed | Enter the PIN you set during registration |
 
@@ -103,7 +103,7 @@ Molly also adds some security improvements over the standard Signal app: encrypt
 
 ### Why White Noise
 
-White Noise uses the Nostr network and MLS (Messaging Layer Security) protocol — the same encryption standard used by Meta's Messenger and other large platforms, but without the central server. There is no White Noise company that can be subpoenaed, shut down, or hacked to expose your messages.
+White Noise uses the Nostr network and MLS (Messaging Layer Security) — an IETF standard for encrypted group messaging (RFC 9420), also being adopted for RCS texting — but without a central server. There is no White Noise company that can be subpoenaed, shut down, or hacked to expose your messages.
 
 Your identity on White Noise is a cryptographic keypair — not a phone number, not an email address, not a username on someone's server. The keypair is generated locally and the private key never leaves your device.
 
@@ -117,7 +117,7 @@ White Noise is best for:
 1. Download the White Noise app from the official repository or app store.
 2. On first launch, your keypair is generated automatically. *Back up your private key (nsec) — write it down offline. This cannot be recovered if lost.*
 3. To connect with someone: share your public key (npub) or find them by their npub.
-4. For NanoClaw: add `npub16pg5zadrrhseg2qjt9lwfcl50zcc8alnt7mnaend3j04wjz4gnjqn6efzc` as a contact.
+4. To talk to your own NanoClaw agent over White Noise, add your agent's npub as a contact (see Part 7).
 
 ---
 
@@ -196,12 +196,7 @@ One solution: remove the SIM from your personal phone entirely and use a *separa
 
 Naomi Brockwell's "No SIM? No Problem!" video covers this setup and its tradeoffs in detail.
 
-*Calyx Institute* (calyxinstitute.org) — A US-based privacy-focused non-profit worth knowing about. They offer:
-• Hotspot service with anonymous signup (accepts cash and cryptocurrency including Monero)
-• Unlimited data via FCC Educational Broadband Spectrum
-• Bundled VPN, Tor exit nodes, and a private Android OS
-• Tax-deductible membership
-• Founded by Nick Merrill, who spent 12 years fighting National Security Letters in court
+*Calyx Institute* (calyxinstitute.org) — A US-based privacy-focused non-profit worth knowing about. Its membership includes a mobile hotspot service running on T-Mobile's US network, and membership is tax-deductible. Calyx was founded by Nick Merrill, known for his long court fight against a National Security Letter. (Note: development of CalyxOS, Calyx's phone operating system, was paused in August 2025, and Calyx advised users to switch away from it. For a private phone, use GrapheneOS — Part 2.)
 
 The tradeoffs of no-SIM: carrying two devices, no traditional cell number (replaced by VoIP), and slightly longer reconnection time when moving between areas. For most people this is too much friction. For higher-risk situations, it's worth considering.
 
@@ -215,9 +210,9 @@ Email was not designed for privacy. Messages pass through multiple servers in tr
 
 That said, some email situations are unavoidable. The sovereignty approach to email:
 
-1. *Use ProtonMail (proton.me) as your primary address.* Proton stores messages encrypted with your key, not theirs. They can't read your email even if compelled to hand it over. Use this address for anything sensitive.
+1. *Use ProtonMail (proton.me) as your primary address.* Proton stores your messages encrypted with your key, not theirs, so they can't hand over readable stored mail even if compelled. Two limits to know: email from people outside Proton arrives readable before Proton encrypts it, and Proton can be legally ordered to hand over account information (such as IP addresses). Use this address for anything sensitive.
 
-2. *Use an alias service for signups.* Services like SimpleLogin (owned by Proton) or AnonAddy let you create unlimited throwaway email aliases that forward to your real address. When a website asks for your email, give them `randomalias@simplelogin.com` rather than your real address. If they sell it, spam goes to the alias you can delete — not to your real inbox.
+2. *Use an alias service for signups.* Services like SimpleLogin (owned by Proton) or addy.io (formerly AnonAddy) let you create unlimited throwaway email aliases that forward to your real address. When a website asks for your email, give them `randomalias@simplelogin.com` rather than your real address. If they sell it, spam goes to the alias you can delete — not to your real inbox.
 
 3. *Don't use email for sensitive real-time conversation.* Signal is better for that. Email is for receipts, documentation, and situations where the other party won't use Signal.
 
