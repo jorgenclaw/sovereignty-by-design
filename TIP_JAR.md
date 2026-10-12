@@ -1,6 +1,6 @@
 # Support This Work 🙏
 
-This project is **free and open source** (MIT License). If you find it valuable, tips are appreciated but never required.
+This project is **free to read and share** (CC BY-NC-SA 4.0 — share with attribution, non-commercial, same license). If you find it valuable, tips are appreciated but never required.
 
 ---
 
