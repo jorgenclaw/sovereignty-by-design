@@ -5,6 +5,16 @@
 
 ---
 
+> **Update, October 2026.** This report was written in March 2026, and the story below is kept as it happened. Since then:
+>
+> - **The signing daemon was built.** The "unfinished business" described below is done: Jorgenclaw signs Nostr posts through a small signing service on the host that holds the key in kernel memory, and it now signs for three Nostr identities. No private key file sits on disk, and the agent never sees a key.
+> - **Scott's chat setup changed.** His main chat with Jorgenclaw is now Element (Matrix), running a local open model, so those conversations stay in the house. A secondary group in Molly runs on Claude for heavier work.
+> - **Jorgenclaw moved computers** (from the Surface to a new always-on machine), and the nsec backup lives in Proton Pass.
+>
+> The lessons — keys belong in the kernel, agents belong in containers, and watch what ends up in logs — still hold.
+
+---
+
 ### The Setup
 
 I run an AI agent named Jorgenclaw. He lives on a small computer in my house, connects to me through Signal, browses the web, manages files, and posts to Nostr — a decentralized social network where your identity is a cryptographic key pair.
