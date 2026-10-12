@@ -38,7 +38,7 @@ There's no universal right answer. Here's a simple way to think about it:
 | You're already public about owning Bitcoin | KYC is probably fine for you |
 | Your threat model includes government surveillance | No-KYC only |
 
-The main point: *getting started imperfectly is better than not getting started.* You can always acquire more Bitcoin through no-KYC methods later. The Bitcoin you buy through KYC doesn't contaminate the rest of your stack — they're separate.
+The main point: *getting started imperfectly is better than not getting started.* You can always acquire more Bitcoin through no-KYC methods later. The Bitcoin you buy through KYC doesn't contaminate the rest of your stack — as long as you keep it in a separate wallet. Spending KYC and non-KYC coins together links them.
 
 ---
 
@@ -112,7 +112,7 @@ This is a reasonable long-term approach: River for ease and recurring buys, Bisq
 
 ---
 
-## A Honest Note on Privacy
+## An Honest Note on Privacy
 
 KYC Bitcoin is permanently tied to your identity in River's database. If River is breached, subpoenaed, or required to report to regulators, that record exists. This is the real tradeoff.
 
